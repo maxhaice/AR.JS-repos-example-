@@ -24,9 +24,9 @@ AFRAME.registerComponent('markerhandler', {
     marker.addEventListener('mousedown', function(ev, target) {
 
       const intersectedElement = ev && ev.detail && ev.detail.intersectedEl;
-
+        alert("we don't get an element");
       if (box && intersectedElement === box) {
-        alert("something");
+        alert("we get an element");
 
         selected = true;
 
