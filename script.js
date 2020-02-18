@@ -5,9 +5,10 @@ AFRAME.registerComponent('markerhandler', {
   init: function() {
 
     const marker = document.querySelector('#marker');
-
+    
     const box = document.querySelector('#card-model');
-
+    console.log(box);
+    console.log(marker);
     
 
     let selected = false;
@@ -21,19 +22,19 @@ AFRAME.registerComponent('markerhandler', {
     const rotationSpeed = 0.5;
 
 
-    marker.addEventListener('mousedown', function(ev, target) {
+//     marker.addEventListener('mousedown', function(ev, target) {
 
-      const intersectedElement = ev && ev.detail && ev.detail.intersectedEl;
-        alert("we don't get an element");
-      if (box && intersectedElement === box) {
-        alert("we get an element");
+//       const intersectedElement = ev && ev.detail && ev.detail.intersectedEl;
+//         alert("we don't get an element");
+//       if (box && intersectedElement === box) {
+//         alert("we get an element");
 
-        selected = true;
+//         selected = true;
 
-        origX = ev.clientX;
+//         origX = ev.clientX;
 
-      }
-    });
+//       }
+//     });
        marker.addEventListener('click', function(ev, target){
          alert("we don't get an element CLICK");
             const intersectedElement = ev && ev.detail && ev.detail.intersectedEl;
