@@ -104,7 +104,17 @@
       document.addEventListener('mousemove', onMouseMove);
 
       
-
+       marker.addEventListener('click', function(ev, target){
+         alert("we don't get an element CLICK");
+            const intersectedElement = ev && ev.detail && ev.detail.intersectedEl;
+            if (box && intersectedElement === box) {
+              alert("we get an element CLICK");
+                const scale = box.getAttribute('scale');
+                Object.keys(scale).forEach((key) => scale[key] = scale[key] + 1);
+                box.setAttribute('scale', scale);
+            }
+        });
+      
       marker.addEventListener('mouseup', function(ev, target) {
 
         selected = false;
