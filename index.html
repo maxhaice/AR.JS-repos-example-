@@ -17,10 +17,15 @@
       <a-marker preset="hiro" markerhandler emitevents="true" cursor="rayOrigin: mouse" id="marker" type='barcode' value='6'>
     <a-entity rotation="90 0 0">
         <a-gltf-model id="card-model" src="url(https://cdn.jsdelivr.net/gh/maxhaice/maxhaice.github.io/Card_v2.gltf)" soundhandler scale="10 10 10">
+
         </a-gltf-model>
     </a-entity>
+        <p id="temp">SALAM</p>
       </a-marker>
       <a-entity sound="src:#sound" autoplay="true"></a-entity>
+    <a-camera>
+      <a-cursor></a-cursor>
+    </a-camera>
       <a-entity camera></a-entity>
       
     </a-scene>
@@ -35,11 +40,25 @@
   init: function() {
 
     const marker = document.querySelector('#marker');
-    const box = document.querySelector('#card-model');
-    
+
+    const model = document.querySelector('#card-model');
+
       marker.addEventListener('mousedown', function(ev, target) {
-      	box.setAttribute('animation', 'property: rotation; dur: 4000; to: -180 0 0; loop: false');
+      	model.setAttribute('animation', 'property: rotation; dur: 4000; to: -180 0 0; loop: false');
+      	            const intersectedElement = ev && ev.detail && ev.detail.intersectedEl;
+      	            alert(false);
+            if (model && intersectedElement == model) {
+            	alert(true);
+                const scale = model.getAttribute('scale');
+                Object.keys(scale).forEach((key) => scale[key] = scale[key] + 1);
+                model.setAttribute('scale', scale);
+            }
       });
+      
+      // marker.addEventListener('mouseup', function(ev, target) {
+      // alert("up");
+      // });
+
     } //*
 
   });//*
