@@ -19,7 +19,6 @@
         <a-gltf-model id="card-model" src="url(https://cdn.jsdelivr.net/gh/maxhaice/maxhaice.github.io/Card_v2.gltf)" soundhandler scale="10 10 10">
         </a-gltf-model>
     </a-entity>
-        <p id="temp">SALAM</p>
       </a-marker>
       <a-entity sound="src:#sound" autoplay="true"></a-entity>
       <a-entity camera></a-entity>
@@ -36,30 +35,11 @@
   init: function() {
 
     const marker = document.querySelector('#marker');
-
     const box = document.querySelector('#card-model');
-    var x;
-    console.log(marker);
-    console.log(box);
-
-    let selected = false;
-
-    let origX = 0.0;
-
-    let endX = 0.0;
-
-    let deltaX = 0.0;
-
-    const rotationSpeed = 0.5;
-
+    
       marker.addEventListener('mousedown', function(ev, target) {
       	box.setAttribute('animation', 'property: rotation; dur: 4000; to: -180 0 0; loop: false');
       });
-      
-      // marker.addEventListener('mouseup', function(ev, target) {
-      // alert("up");
-      // });
-
     } //*
 
   });//*
