@@ -21,20 +21,7 @@
       <a-entity camera></a-entity>
     </a-scene>
   </body>
-  <script>
-    AFRAME.registerComponent('soundhandler', {
-    tick: function () {
-           var entity = document.querySelector('[sound]');
-         if (document.querySelector('a-marker').object3D.visible == true) {
-            entity.components.sound.playSound();
-        } else {
-            entity.components.sound.pauseSound();
-        }
-
-     }
-});
-  </script>
-  <script>
+    <script>
     alert(66);
     AFRAME.registerComponent('markerhandler', {
 
@@ -133,5 +120,19 @@
 
 });
   </script>
+  <script>
+    AFRAME.registerComponent('soundhandler', {
+    tick: function () {
+           var entity = document.querySelector('[sound]');
+         if (document.querySelector('a-marker').object3D.visible == true) {
+            entity.components.sound.playSound();
+        } else {
+            entity.components.sound.pauseSound();
+        }
+
+     }
+});
+  </script>
+
 <!--   <script src="https://cdn.jsdelivr.net/gh/maxhaice/maxhaice.github.io/script.js"></script> -->
 </html>
