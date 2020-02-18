@@ -6,7 +6,7 @@ AFRAME.registerComponent('markerhandler', {
 
     const marker = document.querySelector('#marker');
 
-    const box = document.querySelector('#box');
+    const box = document.querySelector('#card-model');
 
     
 
