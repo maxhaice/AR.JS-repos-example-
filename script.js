@@ -26,6 +26,7 @@ AFRAME.registerComponent('markerhandler', {
       const intersectedElement = ev && ev.detail && ev.detail.intersectedEl;
 
       if (box && intersectedElement === box) {
+        alert("something");
 
         selected = true;
 
