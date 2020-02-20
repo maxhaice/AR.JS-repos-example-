@@ -4,36 +4,41 @@
 <script src="https://raw.githack.com/jeromeetienne/AR.js/2.1.8/aframe/build/aframe-ar.js"></script>
 <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
 <script src="https://rawgit.com/nicolocarpignoli/nicolocarpignoli.github.io/master/ar-click-events/events.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script>
-    //alert("update7");
+    alert('let me fly to end this world');
+    let num = 0;
+    let sound = new Audio('sound.mp3');
     AFRAME.registerComponent('clicked', {
     init: function() {
         this.el.addEventListener('mousedown', function(ev, target){
-          alert("click done");
-        });
-}});
-    AFRAME.registerComponent('clicked_v2', {
-    init: function() {
-        this.el.addEventListener('mousedown', function(ev, target){
-            document.querySelector('#card-model').setAttribute('animation', 'property: rotation; dur: 4000; to: -180 0 0; loop: false');
-        });
-}});
-    AFRAME.registerComponent('clicked_v3', {
-    init: function() {
-        this.el.addEventListener('mousedown', function(ev, target){
-          alert("click_v3 done");
-        });
+            alert('pojalusta zavali ebalo');
+            if(num++ !== 0){
+            
+            document.querySelector('#card-model1').setAttribute('animation', 'property: rotation; dur: 4000; to: -90 0 0; loop: false');
+            document.querySelector('#card-model2').setAttribute('animation', 'property: rotation; dur: 4000; to: -90 0 0; loop: false');
+            if(sound.paused){
+              sound.play();
+            }
+            } });
 }});
 </script>
-  <body style='margin : 0px; overflow: hidden;'>
-    <a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false;'>
-      <a-marker clicked_v2 cursor="fuse: false; rayOrigin: mouse" emitevents="true" type="barcode" value="6" id="animated-marker" preset="hiro">
-        <a-entity emitevents="true" clicked cursor-listener rotation="90 0 0">
-          <a-gltf-model id="card-model" src="url(https://cdn.jsdelivr.net/gh/Demir-Kasyan/files/Card.gltf)"
-          clicked_v3 scale="10 10 10">
-        </a-gltf-model>
+</head>  
+<body>
+<a-scene embedded arjs="debugUIEnabled: false; trackingMethod: best; sourceType: webcam; detectionMode: mono_and_matrix; matrixCodeType: 3x3;">
+  <a-marker clicked id = 'marker' preset='hiro' cursor='rayOrigin: mouse'>
+    <a-gltf-model position="-0.5 0 0" rotation="90 0 0" id="card-model1" src="url(https://cdn.jsdelivr.net/gh/maxhaice/maxhaice.github.io/Card_v2.gltf)"
+          scale="5 5 5">
+        </a-gltf-model> 
+    <a-gltf-model position="0.5 0 0" rotation="90 0 0" id="card-model2" src="url(https://cdn.jsdelivr.net/gh/maxhaice/maxhaice.github.io/Card_v2.gltf)"
+          scale="5 5 5">
     </a-entity>
-      </a-marker>
-     <a-entity camera></a-entity>
-    </a-scene>
+  </a-marker>
+  <a-camera-static/>
+  </a-scene>
+    <script>
+        document.querySelector('#marker').trigger('mousedown');
+    </script>
   </body>
+
+  </html>
