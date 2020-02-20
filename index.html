@@ -6,17 +6,17 @@
 <script src="https://rawgit.com/nicolocarpignoli/nicolocarpignoli.github.io/master/ar-click-events/events.js"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script>
-    addEventListener('mousedown', function(event){
+    addEventListener('click', function(event){
               if(sound.paused){
               sound.play();
              }
     });
-    alert('fff');
+    alert('aaa');
     let num = 0;
     let sound = new Audio('card5.mp3');
     AFRAME.registerComponent('clicked', {
     init: function() {
-        this.el.addEventListener('mousedown', function(ev, target){
+        this.el.addEventListener('click', function(ev, target){
             alert('pojalusta zavali ebalo');
 
             
