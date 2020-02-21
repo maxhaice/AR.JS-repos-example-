@@ -6,24 +6,25 @@
 <script src="https://rawgit.com/nicolocarpignoli/nicolocarpignoli.github.io/master/ar-click-events/events.js"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script>
-    alert('sdfsdf');
+    alert('123');
     let num = 0;
     let sound = new Audio('card5.mp3');
     AFRAME.registerComponent('clicked', {
     init: function() {
         this.el.addEventListener('click', function(ev, target){
             alert('pojalusta zavali ebalo');
-            alert(555);
-            
+            alert(666);
+                        sound.play();
             document.querySelector('#card-model1').setAttribute('animation', 'property: rotation; dur: 4000; to: -90 0 0; loop: false');
             document.querySelector('#card-model2').setAttribute('animation', 'property: rotation; dur: 4000; to: -90 0 0; loop: false');
+
 
         });
 }});
 </script>
 </head>  
 <body>
-<a-scene clicked embedded arjs="debugUIEnabled: false; trackingMethod: best; sourceType: webcam; detectionMode: mono_and_matrix; matrixCodeType: 3x3;">
+<a-scene embedded arjs="debugUIEnabled: false; trackingMethod: best; sourceType: webcam; detectionMode: mono_and_matrix; matrixCodeType: 3x3;">
   <a-marker clicked id = 'marker' preset='hiro' cursor='rayOrigin: mouse'>
     <a-gltf-model position="-0.5 -1 -1" rotation="90 0 0" id="card-model1" src="url(https://cdn.jsdelivr.net/gh/maxhaice/maxhaice.github.io/Card_v2.gltf)"
           scale="5 5 5">//x z y
