@@ -5,6 +5,7 @@
 <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script>
+    alert(5);
     let sound = new Audio('card5.mp3');
     AFRAME.registerComponent('clicked', {
     init: function() {
@@ -13,7 +14,7 @@
                 sound.play();
             }
             document.querySelector('#card-model1').setAttribute('animation', 'property: rotation; dur: 4000; to: -90 0 0; loop: false');
-            document.querySelector('#card-model2').setAttribute('animation', 'property: rotation; dur: 4000; to: -90 0 0; loop: false');
+//             document.querySelector('#card-model2').setAttribute('animation', 'property: rotation; dur: 4000; to: -90 0 0; loop: false');
         });
 }});
 </script>
@@ -22,11 +23,10 @@
 <a-scene embedded arjs="debugUIEnabled: false; trackingMethod: best; sourceType: webcam; detectionMode: mono_and_matrix; matrixCodeType: 3x3;">
   <a-marker clicked id = 'marker' preset='hiro' cursor='rayOrigin: mouse'>
     <a-gltf-model modelhandler position="0 0 0" rotation="90 0 0" id="card-model1" src="url(https://cdn.jsdelivr.net/gh/maxhaice/maxhaice.github.io/Card_v2.gltf)"
-          scale="8 8 8">
+          scale="10 10 10">
         </a-gltf-model> 
 <!--     <a-gltf-model position="0.5 0 -1.4" rotation="90 0 0" id="card-model2" src="url(https://cdn.jsdelivr.net/gh/maxhaice/maxhaice.github.io/Card_v2.gltf)"
           scale="5 5 5"> -->
-    </a-entity>
   </a-marker>
   <a-camera-static/>
   </a-scene>
