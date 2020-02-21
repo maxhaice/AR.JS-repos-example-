@@ -39,7 +39,7 @@
         // every click, we make our model grow in size :)
         model.addEventListener('click', function(ev, target){
             const intersectedElement = ev && ev.detail && ev.detail.intersectedEl;
-            if (model && intersectedElement === aEntity) {
+            if (model && intersectedElement === model) {
                 alert("wow");
 //                 const scale = model.getAttribute('scale');
 //                 model.setAttribute('scale', scale);
