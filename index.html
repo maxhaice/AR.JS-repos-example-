@@ -22,7 +22,7 @@
 <body>
 <a-scene embedded arjs="debugUIEnabled: false; trackingMethod: best; sourceType: webcam; detectionMode: mono_and_matrix; matrixCodeType: 3x3;">
   <a-marker clicked id = 'marker' preset='hiro' cursor='rayOrigin: mouse'>
-    <a-gltf-model position="-0.5 0 0" rotation="90 0 0" id="card-model1" src="url(https://cdn.jsdelivr.net/gh/maxhaice/maxhaice.github.io/Card_v2.gltf)"
+    <a-gltf-model modelhandler id="animated-model" position="-0.5 0 0" rotation="90 0 0" id="card-model1" src="url(https://cdn.jsdelivr.net/gh/maxhaice/maxhaice.github.io/Card_v2.gltf)"
           scale="5 5 5">
         </a-gltf-model> 
     <a-gltf-model position="0.5 0 0" rotation="90 0 0" id="card-model2" src="url(https://cdn.jsdelivr.net/gh/maxhaice/maxhaice.github.io/Card_v2.gltf)"
@@ -31,6 +31,22 @@
   </a-marker>
   <a-camera-static/>
   </a-scene>
+    <script>
+    AFRAME.registerComponent('modelhandler', {
+
+    init: function() {
+        const model = document.querySelector("#animated-model");
+        // every click, we make our model grow in size :)
+        model.addEventListener('click', function(ev, target){
+            const intersectedElement = ev && ev.detail && ev.detail.intersectedEl;
+            if (model && intersectedElement === aEntity) {
+                alert("wow");
+//                 const scale = model.getAttribute('scale');
+//                 model.setAttribute('scale', scale);
+            }
+        });
+}});
+    </script>
   </body>
 
   </html>
