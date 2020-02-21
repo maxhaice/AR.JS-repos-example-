@@ -11,14 +11,17 @@
     let sound = new Audio('card5.mp3');
     AFRAME.registerComponent('clicked', {
     init: function() {
-        this.el.addEventListener('click', function(ev, target){
-            alert('pojalusta zavali ebalo');
-            alert(666);
-                        sound.play();
+        this.el.addEventListener('mousedown', function(ev, target){
+            alert('click');
+            sound.play();
             document.querySelector('#card-model1').setAttribute('animation', 'property: rotation; dur: 4000; to: -90 0 0; loop: false');
             document.querySelector('#card-model2').setAttribute('animation', 'property: rotation; dur: 4000; to: -90 0 0; loop: false');
-
-
+        });
+        this.el.addEventListener('touchstart', function(ev, target){
+            alert('touch');
+            sound.play();
+            document.querySelector('#card-model1').setAttribute('animation', 'property: rotation; dur: 4000; to: -90 0 0; loop: false');
+            document.querySelector('#card-model2').setAttribute('animation', 'property: rotation; dur: 4000; to: -90 0 0; loop: false');
         });
 }});
 </script>
@@ -33,11 +36,8 @@
           scale="5 5 5">
     </a-entity>
   </a-marker>
-<!--   <a-camera-static/> -->
+  <a-camera-static/>
   </a-scene>
-    <script>
-        document.querySelector('#marker').trigger('mousedown');
-    </script>
   </body>
 
   </html>
