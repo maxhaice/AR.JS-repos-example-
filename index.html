@@ -6,20 +6,16 @@
 <!-- <script src="https://rawgit.com/nicolocarpignoli/nicolocarpignoli.github.io/master/ar-click-events/events.js"></script> -->
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script>
-    alert('☺');
+    alert('☺+☻=♥');
     let num = 0;
     let sound = new Audio('card5.mp3');
     AFRAME.registerComponent('clicked', {
     init: function() {
         this.el.addEventListener('mousedown', function(ev, target){
+            if(sound.paused){
+                sound.play();
+            }
             alert('click');
-            sound.play();
-            document.querySelector('#card-model1').setAttribute('animation', 'property: rotation; dur: 4000; to: -90 0 0; loop: false');
-            document.querySelector('#card-model2').setAttribute('animation', 'property: rotation; dur: 4000; to: -90 0 0; loop: false');
-        });
-        this.el.addEventListener('touchstart', function(ev, target){
-            alert('touch');
-            sound.play();
             document.querySelector('#card-model1').setAttribute('animation', 'property: rotation; dur: 4000; to: -90 0 0; loop: false');
             document.querySelector('#card-model2').setAttribute('animation', 'property: rotation; dur: 4000; to: -90 0 0; loop: false');
         });
