@@ -3,7 +3,6 @@
 <script src="https://aframe.io/releases/1.0.0/aframe.min.js"></script>
 <script src="https://raw.githack.com/jeromeetienne/AR.js/2.1.8/aframe/build/aframe-ar.js"></script>
 <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
-<script src="https://rawgit.com/nicolocarpignoli/nicolocarpignoli.github.io/master/ar-click-events/events.js"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script>
     let sound = new Audio('card5.mp3');
@@ -31,22 +30,6 @@
   </a-marker>
   <a-camera-static/>
   </a-scene>
-    <script>
-    AFRAME.registerComponent('modelhandler', {
-
-    init: function() {
-        const model = document.querySelector("#animated-model");
-        // every click, we make our model grow in size :)
-        model.addEventListener('click', function(ev, target){
-            const intersectedElement = ev && ev.detail && ev.detail.intersectedEl;
-            if (model && intersectedElement === model) {
-                alert("wow");
-//                 const scale = model.getAttribute('scale');
-//                 model.setAttribute('scale', scale);
-            }
-        });
-}});
-    </script>
   </body>
 
   </html>
